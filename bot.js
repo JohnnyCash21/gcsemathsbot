@@ -51,7 +51,20 @@ Client.on('message', async (message)=>{
     if(!message.content.startsWith(prefix)) return;
 
     if(message.content.startsWith(prefix + "hello")){
-        message.channel.send("Yo");
+        message.channel.send("Hello! :grin: ");
+    }
+    
+    let image2 = "https://yt3.ggpht.com/ytc/AKedOLS0EQiGsh1IAjK8S-6ZsfjVA2qflVtRAgQ-S6R1=s176-c-k-c0x00ffffff-no-rj"
+
+    if(message.content.startsWith(prefix + "help")){
+        const commandsEmbed = new Discord.MessageEmbed()
+        .setTitle('Help Commands')
+        .addField("`" + prefix + 'ytstats`', "YouTube statistics for The GCSE Maths Tutor", true)
+        .addField("`" + prefix + 'hello`', "oh my god oh my god its reeeall, gcse maths tutor has hi to me ohhhh", true)
+        .setFooter('Bot Made By: RabilA#2691')
+        .setThumbnail(image2)
+        .setColor(0xF1C40F)
+        message.channel.send(commandsEmbed)
     }
 })
 
