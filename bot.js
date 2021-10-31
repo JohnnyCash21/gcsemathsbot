@@ -30,6 +30,7 @@ fs.readdir("./commands/", (err, files) => {
 
 Client.on('ready', async()=>{
     console.log("Bot is online");
+    Client.user.setActivity('working hard! | use "?help"');
 })
 
 Client.on('message', async (message)=>{
