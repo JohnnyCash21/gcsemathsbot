@@ -87,6 +87,7 @@ Client.on('message', async (message)=>{
         .setTitle('Help Commands')
         .addField("`" + prefix + 'ytstats`', "YouTube statistics for The GCSE Maths Tutor", true)
         .addField("`" + prefix + 'hello`', "oh my god oh my god its reeeall, gcse maths tutor has hi to me ohhhh", true)
+        .addField("`" + prefix + 'poll`', "Voting poll for any decision makings", true)
         .setFooter('Bot Made By: RabilA#2691')
         .setThumbnail(image2)
         .setColor(0xF1C40F)
