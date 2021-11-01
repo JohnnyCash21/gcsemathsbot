@@ -34,7 +34,7 @@ Client.on('ready', async()=>{
 })
 
 Client.on('guildMemberAdd', async (member) =>{
-    let unverifiedRole = member.guild.roles.cache.find(unverify => unverify.id == "904665956943540244");
+    let unverifiedRole = member.guild.roles.cache.find(unverify => unverify.id == "904686933559607347");
     if(!unverifiedRole) return;
     member.roles.add(unverifiedRole);
 })
