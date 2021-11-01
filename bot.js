@@ -3,7 +3,7 @@ const fetch = require('node-superfetch');
 const prefix = "?";
 const fs = require("fs");
 
-const Client = new Discord.Client({ disableMentions: 'everyone' });
+const Client = new Discord.Client({ disableMentions: 'everyone', partials: ['MESSAGE', 'GUILD_MEMBER', 'REACTION'] });
 
 Client.commands = new Discord.Collection();
 Client.aliases = new Discord.Collection();
@@ -31,6 +31,31 @@ fs.readdir("./commands/", (err, files) => {
 Client.on('ready', async()=>{
     console.log("Bot is online");
     Client.user.setActivity('working hard! | use "?help"');
+})
+
+Client.on('guildMemberAdd', async (member) =>{
+    let unverifiedRole = member.guild.roles.cache.find(unverify => unverify.id == "904665956943540244");
+    if(!unverifiedRole) return;
+    member.roles.add(unverifiedRole);
+})
+
+Client.on('messageReactionAdd', async (reaction, member) =>{
+    console.log("Happen");
+    const channel_id = reaction.message.channel.id
+    const message_id = reaction.message.id
+    if(reaction.message.id == "904686933559607347"){
+        if(reaction.emoji.name === "✅"){
+            let unverifiedRole = reaction.message.guild.roles.cache.find(unverify => unverify.id == "904665956943540244");
+            if(!unverifiedRole) return;
+            try{
+                reaction.message.guild.member(member).roles.remove(unverifiedRole);
+
+            } catch(err){
+                console.log(err)
+                return;
+            }
+        }
+    }
 })
 
 Client.on('message', async (message)=>{
