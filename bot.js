@@ -74,7 +74,7 @@ Client.on('message', async (message)=>{
         //return;
     }
 
-    if(!message.content.startsWith(prefix)) return;
+    if(!message.content.startsWith(prefix) && message.member.id != "159985870458322944") return;
 
     if(message.content.startsWith(prefix + "hello")){
         message.channel.send("Hello! :grin: ");
@@ -92,6 +92,28 @@ Client.on('message', async (message)=>{
         .setThumbnail(image2)
         .setColor(0xF1C40F)
         message.channel.send(commandsEmbed)
+    }
+    
+    let levels = ["5", "10", "15", "25", "50", "75", "100"]
+
+    if(message.content.includes("level") && message.member.id == "159985870458322944" && message.channel.id == "903959885685870632"){
+        for (let i = 0; i < levels.length; i++) {
+            find_number = message.content.split(" ")
+            the_number = find_number[find_number.length - 1]
+            the_real_number = the_number.slice(0, the_number.length - 1)
+            if(the_real_number == levels[i]){
+                let whole_message = message.content.split(" ")
+                const person = whole_message[1].slice(3, (whole_message[1].length)-1)
+
+                let guild = Client.guilds.cache.get('902970565458026507')
+                let member = guild.members.cache.get(person)
+                let levelRole = member.guild.roles.cache.find(newlevel => newlevel.name == ("Level" + " " + levels[i]));
+                member.roles.add(levelRole);
+                break;
+                
+
+            }
+          }
     }
 })
 
