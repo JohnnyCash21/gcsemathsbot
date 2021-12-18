@@ -103,7 +103,7 @@ Client.on('message', async (message)=>{
             the_real_number = the_number.slice(0, the_number.length - 1)
             if(the_real_number == levels[i]){
                 let whole_message = message.content.split(" ")
-                const person = whole_message[1].slice(3, (whole_message[1].length)-1)
+                const person = whole_message[1].slice(3, (whole_message[1].length)-2)
 
                 let guild = Client.guilds.cache.get('902970565458026507')
                 let member = guild.members.cache.get(person)
