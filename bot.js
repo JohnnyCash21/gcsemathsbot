@@ -74,7 +74,7 @@ Client.on('message', async (message)=>{
         //return;
     }
 
-    if(!message.content.startsWith(prefix) && message.member.id != "236746776521080844") return;
+    if(!message.content.startsWith(prefix) && message.member.id != "159985870458322944") return;
 
     if(message.content.startsWith(prefix + "hello")){
         message.channel.send("Hello! :grin: ");
@@ -96,7 +96,7 @@ Client.on('message', async (message)=>{
     
     let levels = ["5", "10", "15", "25", "50", "75", "100"]
 
-    if(message.content.includes("level") && message.member.id == "236746776521080844" && message.channel.id == "904146305830498304"){
+    if(message.content.includes("level") && message.member.id == "159985870458322944" && message.channel.id == "903959885685870632"){
         for (let i = 0; i < levels.length; i++) {
             find_number = message.content.split(" ")
             the_number = find_number[find_number.length - 1]
